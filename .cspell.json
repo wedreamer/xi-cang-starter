@@ -1,0 +1,50 @@
+{
+  "version": "0.2",
+  "language": "en,en-US",
+  "words": [
+    "cang",
+    "corepack",
+    "dbaeumer",
+    "esbenp",
+    "Gruntfuggly",
+    "nestjs",
+    "nvmrc",
+    "pnpm",
+    "swc",
+    "zshrc"
+  ],
+  // 忽略的文件和目录 (支持 glob 模式)
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    ".git",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "**/*.min.js",
+    "**/*.map",
+    "vscode-extension" // 举例：忽略整个特定文件夹
+  ],
+  // 只有这些语言的文件才会被检查 (白名单模式)
+  // 如果不写这一项，插件会尝试检查所有它认识的文件
+  "enabledLanguageIds": [
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "markdown",
+    "css",
+    "scss",
+    "html",
+    "yaml"
+  ],
+  // 单词长度限制
+  // 小于 4 个字母的单词不检查 (减少误报，比如 i, x, y, id, to)
+  "minWordLength": 4,
+  // 是否允许复合词
+  // true: "errormessage" 算对 (error + message)
+  // false: "errormessage" 算错 (必须写成 errorMessage 或 error_message)
+  "allowCompoundWords": false
+}
