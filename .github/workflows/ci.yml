@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  # 阶段 1: 代码质量检查 (先后检查 CSpell -> ESLint -> Prettier)
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+
+      # 1. 拼写检查
+      - name: Run Spellcheck
+        run: pnpm spellcheck
+
+      # 2. ESLint 检查
+      - name: Run ESLint
+        run: pnpm ci:lint
+
+      # 3. Prettier 格式检查 (仅检查不修改)
+      - name: Check Formatting
+        run: pnpm ci:format
+
+  # 阶段 2: 全量类型检查 (与代码质量检查并行)
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+
+      - name: Run Type Check
+        run: npx tsc --noEmit
+
+  # 阶段 3: 测试 (与上述并行)
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+
+      # 1. 单元测试
+      - name: Run Unit Tests
+        run: pnpm test
+
+      # 2. E2E 测试
+      - name: Run E2E Tests
+        run: pnpm test:e2e

@@ -7,11 +7,13 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write .",
+    "ci:format": "prettier --check .",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint --fix .",
+    "ci:lint": "eslint .",
     "spellcheck": "cspell . --no-progress",
     "test": "jest",
     "test:watch": "jest --watch",
