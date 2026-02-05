@@ -158,11 +158,8 @@ dist
 .svelte-kit
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# IDE - VSCode
+.vscode/
 !.vscode/*.code-snippets
 
 # Local History for Visual Studio Code

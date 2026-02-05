@@ -1,0 +1,58 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		// -----------------------------------------------------------------
+		// 1. TypeScript 环境配置
+		// -----------------------------------------------------------------
+		// 强制 VS Code 使用项目本地安装的 TS 版本，而非编辑器内置版本，保证编译一致性
+		"typescript.tsdk": "node_modules/typescript/lib",
+		// -----------------------------------------------------------------
+		// 2. 代码格式化配置 (Prettier)
+		// -----------------------------------------------------------------
+		// 指定默认格式化工具为 Prettier 插件
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		// 开启保存时自动格式化
+		"editor.formatOnSave": true,
+		// 缩进设置为 2 个空格
+		"editor.tabSize": 2,
+		// 统一换行符为 LF (\n)，避免跨平台开发时的 Git 差异
+		"files.eol": "\n",
+		// -----------------------------------------------------------------
+		// 3. 代码质量与 Lint 配置 (ESLint)
+		// -----------------------------------------------------------------
+		// 开启 ESLint Flat Config 支持 (适配 eslint.config.mjs)
+		"eslint.useFlatConfig": true,
+		// 配置保存时触发的动作：自动修复 ESLint 可修复的问题
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		},
+		// -----------------------------------------------------------------
+		// 4. 视图与搜索优化
+		// -----------------------------------------------------------------
+		// 排除以下目录不进行文本搜索，提高搜索效率
+		"search.exclude": {
+			"**/node_modules": true,
+			"**/dist": true, // 构建产物
+			"**/coverage": true, // 测试覆盖率报告
+			"**/.pnpm": true
+		},
+		// 排除以下文件不在左侧资源管理器显示，保持界面整洁
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/.Thumbs.db": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"streetsidesoftware.code-spell-checker",
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"Gruntfuggly.todo-tree"
+		]
+	}
+}
