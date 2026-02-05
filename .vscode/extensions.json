@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker", // spell -> checker 拼写检查插件
+    "dbaeumer.vscode-eslint", // ESLint 插件
+    "esbenp.prettier-vscode", // Prettier 插件
+    "Gruntfuggly.todo-tree", // TODO 任务管理插件
+  ]
+}
