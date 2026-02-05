@@ -14,7 +14,7 @@
     "target": "esnext",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
